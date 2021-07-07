@@ -28,3 +28,11 @@ body{
 .font-heading{
   font-family: 'FontHeading', Fallback, sans-serif;
 }
+
+.btn-primary{
+  background: linear-gradient(180deg, #D3B1FD -230.71%, #6F02FD 109.02%);
+  box-shadow: 0px 24px 30px rgba(66, 15, 133, 0.2);
+}
+.btn-primary:hover{
+  background: linear-gradient(180deg, #D3B1FD -230.71%, #4E00B4 109.02%);
+}
