@@ -1,1 +1,30 @@
 @import "tailwindcss/tailwind.css";
+
+@font-face {
+  font-family: 'FontHeading';
+  src: url('./fonts/FormulaCondensed-Bold/FormulaCondensed-Light.otf') format('opentype');
+}
+
+@font-face {
+  font-family: 'FontHeading';
+  src: url('./fonts/FormulaCondensed-Bold/FormulaCondensed-Bold.otf') format('opentype');
+  font-weight: bold;
+}
+
+@font-face {
+  font-family: 'FontBody';
+  src: url('./fonts/Circular_std/CircularStd-Book.eot');
+  src: url('./fonts/Circular_std/CircularStd-Book.woff') format('woff'),
+        url('./fonts/Circular_std/CircularStd-Book.woff2') format('woff2');
+}
+
+body{
+  font-family: 'FontBody', Fallback, sans-serif;
+  color: #E3E3FD;
+  background-color: #17002C;
+  font-size: 18px;
+}
+
+.font-heading{
+  font-family: 'FontHeading', Fallback, sans-serif;
+}
