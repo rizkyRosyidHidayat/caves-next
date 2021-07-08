@@ -1,7 +1,44 @@
 import Head from 'next/head'
 import Header from '../components/header'
+import Button from '../components/button/button'
+import Footer from '../components/footer/footer'
 
 export default function Home() {
+  const best_values = [
+    { 
+      text: `have maybe two clipart people, maybe wearing VR headsets, 
+        connecting via an arrow or a massive shared screen.`,
+      title: 'Connect',
+      img: 'ic_connect.png',
+    },
+    { 
+      text: `have a person sending content out from 
+        their headset or head or something.`,
+      title: 'Share',
+      img: 'ic_share.png',
+    },
+    { 
+      text: `have a person looking at many smaller rectangles, 
+        signifying a sort of infinite set of options for them to look at.`,
+      title: 'Explore',
+      img: 'ic_explore.png',
+    }
+  ].map(value =>
+    <div 
+      key={value.text} 
+      className={value.title==='Share'?'col-span-3':'col-span-4'}>
+      {/* eslint-disable */}
+      <img src={`/assets/${value.img}`} alt={value.img} width="80" />
+      {/* eslint-enable */}
+      <h3 className="font-heading mt-4 text-3xl" style={{ fontWeight: 'bold' }}>
+        { value.title }
+      </h3>
+      <p className="leading-loose">
+        { value.text }
+      </p>
+    </div>  
+  )
+
   return (
     <div>
       <Head>
@@ -12,6 +49,108 @@ export default function Home() {
 
       <main>
         <Header></Header>
+
+        {/* banner */}
+        <section className="mt-24">
+          <div className="container">
+            <div className="grid grid-cols-2 gap-20">
+              <div>
+                <div className="text-2xl mb-3">VR Social Browsing</div>
+                <h1 className="uppercase text-banner font-heading leading-tight" style={{ fontWeight: 'bold' }}>
+                  Browse the Internet in vr <br />
+                  <span className="text-primary-100">No PC Required</span>
+                </h1>
+                <p className="leading-loose mb-8">
+                  Amet minim mollit non deserunt ullamco est sit 
+                  aliqua dolor do amet sint Velit officia consequat.
+                </p>
+                <Button text="Start Exploring"></Button>
+              </div>
+
+              <div>
+                {/* eslint-disable */}
+                <img 
+                  src="/assets/side-right.png" 
+                  alt="side right"
+                  width={'100%'} />
+
+                {/* eslint-enable */}
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* our mission */}
+        <section className="mt-32">
+          <div className="container">
+            <div className="grid grid-cols-2 gap-20 items-center">
+              <div>
+                {/* eslint-disable */}
+                <img src="/assets/bird.png" alt="bird picture" className="w-full" />
+                {/* eslint-enable */}
+              </div>
+
+              <div>
+                <h2 className="font-heading leading-tight text-7xl mb-3" style={{ fontWeight: 'bold' }}>
+                  OUR <br />
+                  <span className="text-primary-100">
+                    MISSION
+                  </span>
+                </h2>
+                <p className="leading-loose">
+                  In Caves, you have the entire internet at your virtual 
+                  fingertips: invite friends over to browse the web or 
+                  watch videos on a shared screen, or open multiple 
+                  windows and experience the internet like you never 
+                  have before, all from your Cave, using your 
+                  standalone VR headset. No PC link required.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* our best values */}
+        <section className="mt-40">
+          <div className="container px-28">
+            <h2 className="font-heading leading-tight text-7xl mb-3" style={{ fontWeight: 'bold' }}>
+              OUR <br />
+              <span className="text-primary-100">
+                BEST VALUE
+              </span>
+            </h2>
+
+            <div className="grid grid-cols-11 gap-8 mt-5">
+              { best_values }
+            </div>
+
+            <div className="flex justify-center mt-16">
+              <Button text="Start Exploring"></Button>
+            </div>
+          </div>
+        </section>
+
+        {/* join */}
+        <section className="mt-40">
+          <div className="container">
+            <div 
+              className="flex items-center bg-cover px-40" 
+              style={{ height: 485, backgroundImage: 'url(/assets/bg-shape.svg)' }}>
+              <div>
+                <h1 className="text-center uppercase font-heading text-6xl" style={{ fontWeight: 'bold' }}>
+                  join on your virtual space with friends and shared screen together!
+                </h1>
+                
+                <div className="flex justify-center mt-12">
+                  <Button text="Start Exploring"></Button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* footer */}
+        <Footer></Footer>
       </main>
     </div>
   )
