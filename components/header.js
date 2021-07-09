@@ -1,6 +1,7 @@
 import Image from "next/image"
 import { useState } from "react"
 import Button from "./button/button"
+import HiddenMenu from "./hidden-menu/hidden-menu"
 
 const IconSosmed = ({ item }) => {
   const [icon, setIcon] = useState(item.icon)
@@ -22,6 +23,8 @@ const IconSosmed = ({ item }) => {
 }
 
 const Header = () => {
+  const [open, setOpen] = useState(false)
+
   const menu = [
     { text: 'Home', link: '#' },
     { text: 'Features', link: '#' },
@@ -47,37 +50,43 @@ const Header = () => {
   )
 
   return (
-    <nav className="py-2 mt-2 sm:mt-16" style={{backgroundColor: '#17002C'}}>
-      <div className="container">
-        <div className="flex justify-between items-center">
-          <div className="flex items-center">
-            <a className="navbar-brand hidden sm:inline-block">
-              <Image src="/assets/logo.png" alt="brand logo caves" height={50} width={170} />
-            </a>
-            <a className="navbar-brand inline-block sm:hidden">
-              <Image src="/assets/logo.png" alt="brand logo caves" height={37} width={125} />
-            </a>
-            <ul className="hidden sm:flex -mx-4 ml-4">
-              { menu }
-            </ul>
-          </div>
+    <>
+      <nav className="py-2 mt-2 sm:mt-16" style={{backgroundColor: '#17002C'}}>
+        <div className="container">
+          <div className="flex justify-between items-center">
+            <div className="flex items-center">
+              <a className="navbar-brand hidden sm:inline-block">
+                <Image src="/assets/logo.png" alt="brand logo caves" height={50} width={170} />
+              </a>
+              <a className="navbar-brand inline-block sm:hidden">
+                <Image src="/assets/logo.png" alt="brand logo caves" height={37} width={125} />
+              </a>
+              <ul className="hidden sm:flex -mx-4 ml-4">
+                { menu }
+              </ul>
+            </div>
 
-          {/* eslint-disable */}
-          <div className="flex sm:hidden items-center justify-center w-8 h-8 bg-white rounded-lg">
-            <img src="/assets/menu.svg" alt="menu button" />
-          </div>
-          {/* eslint-enable */}
+            {/* eslint-disable */}
+            <div 
+              onClick={() => setOpen(true)}
+              className="flex sm:hidden items-center justify-center w-8 h-8 bg-white rounded-lg">
+              <img src="/assets/menu.svg" alt="menu button" />
+            </div>
+            {/* eslint-enable */}
 
-          <div className="hidden sm:flex items-center">
-            <ul className="flex items-center -mx-2 mr-2">
-              { sosmed }
-            </ul>
-            
-            <Button text="Download App"></Button>
+            <div className="hidden sm:flex items-center">
+              <ul className="flex items-center -mx-2 mr-2">
+                { sosmed }
+              </ul>
+              
+              <Button text="Download App"></Button>
+            </div>
           </div>
         </div>
-      </div>
-    </nav>
+      </nav>
+
+      <HiddenMenu open={open} close={() => setOpen(false)}></HiddenMenu>
+    </>
   )
 }
 
