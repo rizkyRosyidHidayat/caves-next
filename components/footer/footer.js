@@ -29,7 +29,7 @@ const Footer = () => {
     { text: 'Terms Of Services', link: '#' },
     { text: 'FAQ', link: '#' }
   ].map(item =>
-    <li key={item.text} className="px-5">
+    <li key={item.text} className="py-2 sm:px-5 text-center sm:text-left">
       <a className="font-heading text-2xl transition-all hover:text-primary-200" href={item.link}>
         { item.text }
       </a>
@@ -50,11 +50,14 @@ const Footer = () => {
     <footer className="mt-40 mb-32">
       <div className="container">
         <nav className="py-2">
-          <div className="flex justify-between items-center">
-            <a className="navbar-brand">
+          <div className="block sm:flex justify-between items-center">
+            <a className="navbar-brand hidden sm:inline-block">
               <Image src="/assets/logo.png" alt="brand logo caves" height={50} width={170} />
             </a>
-            <ul className="flex -mx-5">
+            <div className="flex justify-center mb-4 sm:hidden">
+              <Image src="/assets/logo.png" alt="brand logo caves" height={37} width={125} />
+            </div>
+            <ul className="block sm:flex sm:-mx-5">
               { menu }
             </ul>
           </div>
